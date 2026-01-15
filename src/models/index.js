@@ -6,10 +6,10 @@ const Offer=require("./offer");
 const Deal=require("./deal");
 
 User.hasMany(Item,{foreignKey:"ownerId"});
-Item.belongsTo(User,{foreignKey:"ownerId"});
+Item.belongsTo(User,{foreignKey:"ownerId", onDelete:"CASCADE"});
 
 User.hasMany(Offer,{foreignKey:"userId"});
-Offer.belongsTo(User,{foreignKey:"userId"});
+Offer.belongsTo(User,{foreignKey:"userId", onDelete:"CASCADE"});
 
 Item.hasMany(Offer,{foreignKey:"itemId"});
 Offer.belongsTo(Item,{foreignKey:"itemId"});
@@ -23,4 +23,9 @@ Deal.belongsTo(User,{as:"owner",foreignKey:"ownerId"});
 Item.hasOne(Deal,{foreignKey:"itemId"});
 Deal.belongsTo(Item,{foreignKey:"itemId"});
 
-module.exports = {User,Item,Offer,Deal};
+module.exports = {
+    User,
+    Item,
+    Offer,
+    Deal
+};
