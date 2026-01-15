@@ -1,12 +1,11 @@
 const {Sequelize}=require("sequelize");
-require("dotenv").config();
 
 const sequelize=new Sequelize(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD,
+    "Online_Market",
+    "root",
+    "root",
     {
-        host:process.env.DB_HOST,
+        host:"localhost",
         dialect:"mysql",
         logging:false,
     }

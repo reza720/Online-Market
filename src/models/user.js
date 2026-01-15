@@ -9,7 +9,7 @@ const User=sequelize.define("User",{
     timestamps:true,
     indexes:[
         {fields:["name"]},
-        {unique:true, fields:["phone","deletedAt"]}
+        {unique:true, fields:["phone"]}
     ]
 });
 module.exports=User;
